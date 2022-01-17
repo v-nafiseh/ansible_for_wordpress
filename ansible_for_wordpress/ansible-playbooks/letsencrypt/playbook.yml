@@ -1,0 +1,36 @@
+- hosts: all 
+  vars_files:
+    - vars/default.yml
+  tasks:
+    - name: Install python package
+      apt:
+        name: python3 
+        update_cache: yes 
+        state: latest
+
+    - name: Install lets encrypt package
+      apt: 
+        name: {{ certbot_package }} 
+        update_cache: yes 
+        state: latest
+
+    - name: permit https through ufw
+      community.general.ufw:
+        rule: allow
+        name: Apache Full
+
+    - name: delete Apache rule
+      community.general.ufw:
+        rule: allow
+        name: Apache
+        delete: yes
+
+    - name: hgf
+      apt:
+        name: httpd
+        state: absent
+
+    - name: delete somthing
+      apt:
+        name: httpd
+        state: absent

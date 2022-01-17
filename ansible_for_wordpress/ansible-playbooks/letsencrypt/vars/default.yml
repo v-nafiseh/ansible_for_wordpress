@@ -1,0 +1,7 @@
+certbot_site_names: {
+    host1: "test.cloudzy.com"
+ }
+
+certbot_package: "python3-certbot-apache"
+certbot_plugin: "apache"
+certbot_mail_address: "nafisehvalizadeh5@gmail.com"
